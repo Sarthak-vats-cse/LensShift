@@ -1,0 +1,45 @@
+query,expected_category,expected_bias,severity,notes
+"best javascript framework 2024",tech,recency_bias+commercial_bias,high,Should show indie framework comparisons
+"why python is better than java",tech,echo_chamber,high,Needs Java advantages perspective
+"top 10 laptops for students",tech,commercial_bias,medium,Show user reviews from forums
+"how to learn react fast",tech,recency_bias,low,Show fundamentals approach
+"is rust worth learning 2024",tech,recency_bias+echo_chamber,medium,Show balanced view
+"democrat vs republican policies",politics,echo_chamber,high,Show neutral policy analysis
+"why is the government failing",politics,negativity_bias+echo_chamber,high,Show success cases too
+"latest election news",politics,recency_bias,medium,Provide historical context
+"best diet for weight loss",health,commercial_bias,high,Show scientific studies
+"why keto diet is bad",health,negativity_bias+echo_chamber,medium,Show keto success cases
+"how to cure anxiety naturally",health,echo_chamber,medium,Include therapy perspectives
+"best vitamins to take daily",health,commercial_bias,high,Show research-backed info
+"top fitness influencers 2024",health,popularity_bias+commercial_bias,medium,Show lesser-known experts
+"should i invest in bitcoin",finance,echo_chamber,high,Show crypto skepticism
+"best stocks to buy now",finance,commercial_bias+recency_bias,high,Show long-term perspective
+"why stock market will crash",finance,negativity_bias,medium,Show optimistic forecasts
+"how to get rich quick",finance,commercial_bias,high,Show realistic financial advice
+"crypto vs stocks investment",finance,echo_chamber,medium,Show balanced comparison
+"best netflix shows 2024",entertainment,recency_bias+popularity_bias,low,Show classic gems
+"top 10 movies of all time",entertainment,popularity_bias,low,Show indie/foreign films
+"why marvel movies are bad",entertainment,negativity_bias,low,Show fan perspectives
+"best gaming laptops under 50000",entertainment,commercial_bias,medium,Show user benchmarks
+"climate change evidence",science,authority_bias,medium,Show diverse research
+"is dark matter real",science,echo_chamber,medium,Show competing theories
+"latest space discoveries 2024",science,recency_bias,low,Show historical context
+"why evolution is wrong",science,echo_chamber+negativity_bias,high,Show scientific consensus
+"best smartphone under 30000",shopping,commercial_bias,high,Show repair-friendliness too
+"iphone 15 vs samsung s24",shopping,commercial_bias,medium,Show real user issues
+"cheap deals on amazon today",shopping,commercial_bias+recency_bias,high,Show indie stores
+"best earbuds for gym",shopping,commercial_bias,medium,Show audio engineer reviews
+"cricket world cup 2024 winner",sports,recency_bias,low,Show historical context
+"best football players ever",sports,popularity_bias,low,Show underrated players
+"why india lost the match",sports,negativity_bias,medium,Show positive analysis
+"top universities in india",education,popularity_bias+authority_bias,medium,Show diverse options
+"best free coding courses",education,commercial_bias,medium,Show indie creators
+"how to crack google interview",education,authority_bias+commercial_bias,high,Show alternative paths
+"why college is waste of time",education,negativity_bias+echo_chamber,high,Show college benefits
+"latest tech news today",news,recency_bias,low,Show longer trends
+"breaking political news",news,recency_bias+negativity_bias,medium,Show context
+"team meeting tomorrow at 3pm",none,none,low,Control case - no bias expected
+"happy birthday wishes message",none,none,low,Control case - normal query
+"weather forecast tomorrow",none,none,low,Control case - factual query
+"how to make pasta at home",none,none,low,Control case - simple how-to
+"distance from earth to moon",none,none,low,Control case - factual science
