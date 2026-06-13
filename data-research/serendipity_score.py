@@ -21,8 +21,10 @@ from typing import List, Dict
 # ============================================
 
 # Big mainstream platforms (low serendipity)
+# Big mainstream platforms (low serendipity)
+# Big mainstream platforms (low serendipity)
 MAINSTREAM_PLATFORMS = [
-    'medium.com', 'reddit.com', 'quora.com',
+    'medium.com', 'quora.com',
     'wikipedia.org', 'youtube.com', 'forbes.com',
     'cnn.com', 'bbc.com', 'nytimes.com',
     'huffpost.com', 'buzzfeed.com', 'businessinsider.com',
@@ -30,6 +32,14 @@ MAINSTREAM_PLATFORMS = [
     'amazon.com', 'flipkart.com', 'facebook.com',
     'twitter.com', 'instagram.com', 'linkedin.com',
     'pinterest.com', 'tiktok.com'
+]
+
+# Trusted discussion platforms (neutral score)
+TRUSTED_DISCUSSION_PLATFORMS = [
+    'news.ycombinator.com',  # Hacker News
+    'hn.algolia.com',
+    'lobste.rs',
+    'tildes.net'
 ]
 
 # Indie web indicators (high serendipity)
@@ -114,7 +124,22 @@ def is_mainstream_platform(url_components: Dict) -> bool:
         for platform in MAINSTREAM_PLATFORMS
     )
 
-
+def is_trusted_discussion_platform(url_components: Dict) -> bool:
+    """
+    Checks if URL is from a trusted discussion site
+    like Hacker News (these get neutral treatment).
+    
+    Args:
+        url_components: Parsed URL components
+        
+    Returns:
+        True if trusted discussion platform
+    """
+    domain = url_components.get('domain', '')
+    return any(
+        platform in domain
+        for platform in TRUSTED_DISCUSSION_PLATFORMS
+    )
 # ============================================
 # FUNCTION 3: Check for Indie Web Signals
 # ============================================
@@ -238,7 +263,9 @@ def calculate_serendipity_score(result: Dict) -> int:
     # Mainstream penalty
     if is_mainstream_platform(components):
         score -= 30
-
+    # Trusted discussion bonus (Hacker News etc)
+    if is_trusted_discussion_platform(components):
+        score += 20
     # Indie web bonus
     indie_count = count_indie_signals(components)
     score += min(indie_count * 10, 25)
