@@ -37,7 +37,7 @@ To test LensShift, you need to spin up the local Python API and load the fronten
 
 ### Phase 1: Start the Backend Engine
 1. Clone this repository to your local machine:
-   `git clone https://github.com/your-username/LensShift.git`
+   `git clone https://github.com/Sarthak-vats-cse/LensShift`
    `cd LensShift`
 2. Install the required Python dependencies:
    `python -m pip install -r requirements.txt`
@@ -57,7 +57,7 @@ To test LensShift, you need to spin up the local Python API and load the fronten
 
 ### Phase 3: Test the Pipeline
 1. Open a new tab and navigate to Google.com.
-2. Search for a highly debated or commercialized topic (e.g., "Agile methodology destroying software quality" or "Water consumption of generative AI data centers").
+2. Search for a highly debated or commercialized topic (e.g., "The enshittification of search engines and SEO spam" or "Water consumption of generative AI data centers").
 3. The LensShift sidebar will automatically slide in, intercept the query, and query the local API to generate the human web analysis.
 
 ---
@@ -66,5 +66,6 @@ To test LensShift, you need to spin up the local Python API and load the fronten
 
 Built for the hackathon by:
 * **Sahil** — Full-Stack Architecture & API Integration
-* **thesussymiss** — Frontend UI & Extension Ecosystem
-* **Symboria** — Data Logic & Lore/Concept Engineering
+* **Sarthak** — Support in API integration 
+* **Mayank** — Frontend UI
+* **Garv** — Data reasearch
