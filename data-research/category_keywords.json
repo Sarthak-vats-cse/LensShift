@@ -1,0 +1,92 @@
+{
+  "tech": [
+    "python", "javascript", "java", "coding", "programming",
+    "developer", "software", "github", "react", "vue",
+    "angular", "node", "api", "database", "sql",
+    "machine learning", "ml", "ai", "artificial intelligence",
+    "deep learning", "neural network", "startup", "framework",
+    "linux", "windows", "macos", "docker", "kubernetes",
+    "aws", "cloud", "devops", "frontend", "backend",
+    "fullstack", "web development", "app development",
+    "mobile app", "ios", "android", "swift", "kotlin",
+    "typescript", "rust", "golang", "c++", "html", "css"
+  ],
+  "politics": [
+    "election", "government", "policy", "democrat", "republican",
+    "president", "congress", "senate", "vote", "voting",
+    "political", "legislation", "party", "campaign", "rally",
+    "protest", "law", "constitution", "supreme court",
+    "prime minister", "parliament", "minister", "governor",
+    "mayor", "tax policy", "immigration", "border", "war",
+    "conflict", "diplomacy", "treaty", "sanctions"
+  ],
+  "health": [
+    "diet", "fitness", "workout", "gym", "exercise",
+    "medical", "doctor", "symptom", "disease", "treatment",
+    "medicine", "nutrition", "vitamin", "supplement",
+    "mental health", "anxiety", "depression", "therapy",
+    "yoga", "meditation", "weight loss", "weight gain",
+    "protein", "calories", "cardio", "running", "cycling",
+    "sleep", "insomnia", "stress", "wellness", "healthy",
+    "vaccine", "covid", "fever", "headache", "migraine"
+  ],
+  "finance": [
+    "stock", "stocks", "share market", "crypto", "bitcoin",
+    "ethereum", "investment", "trading", "portfolio", "market",
+    "economy", "recession", "inflation", "savings", "loan",
+    "mortgage", "tax", "income", "salary", "budget",
+    "financial planning", "retirement", "mutual fund", "etf",
+    "nifty", "sensex", "nasdaq", "dow jones", "forex",
+    "currency", "exchange rate", "bank", "interest rate",
+    "credit card", "debt", "insurance", "real estate"
+  ],
+  "entertainment": [
+    "movie", "movies", "film", "music", "song", "album",
+    "netflix", "spotify", "youtube", "tiktok", "instagram",
+    "game", "gaming", "playstation", "xbox", "nintendo",
+    "anime", "manga", "series", "tv show", "streaming",
+    "celebrity", "actor", "actress", "singer", "band",
+    "concert", "podcast", "comedy", "drama", "thriller",
+    "horror", "documentary", "trailer", "review", "rating"
+  ],
+  "science": [
+    "research", "study", "experiment", "theory", "hypothesis",
+    "physics", "chemistry", "biology", "space", "nasa",
+    "spacex", "rocket", "satellite", "planet", "galaxy",
+    "universe", "climate", "global warming", "evolution",
+    "genetics", "dna", "rna", "cell", "organism",
+    "quantum", "relativity", "atom", "molecule", "energy",
+    "ecosystem", "environment", "scientific", "discovery"
+  ],
+  "shopping": [
+    "buy", "price", "review", "best", "cheap", "discount",
+    "amazon", "flipkart", "myntra", "deal", "offer",
+    "product", "comparison", "coupon", "sale", "shopping",
+    "ecommerce", "delivery", "order", "purchase", "checkout",
+    "iphone", "samsung", "laptop", "smartphone", "headphones",
+    "earbuds", "smartwatch", "tablet", "camera", "tv",
+    "refrigerator", "washing machine", "clothes", "shoes"
+  ],
+  "sports": [
+    "cricket", "football", "soccer", "basketball", "tennis",
+    "badminton", "hockey", "baseball", "golf", "boxing",
+    "mma", "ufc", "olympics", "world cup", "ipl",
+    "fifa", "nba", "nfl", "premier league", "champions league",
+    "match", "tournament", "player", "team", "coach",
+    "score", "goal", "wicket", "champion", "trophy"
+  ],
+  "education": [
+    "college", "university", "school", "course", "degree",
+    "exam", "test", "study", "tutorial", "lecture",
+    "professor", "teacher", "student", "scholarship",
+    "admission", "syllabus", "curriculum", "homework",
+    "assignment", "project", "thesis", "research paper",
+    "online learning", "coursera", "udemy", "khan academy"
+  ],
+  "news": [
+    "news", "breaking", "headlines", "latest", "today",
+    "update", "report", "journalist", "media", "press",
+    "broadcast", "channel", "newspaper", "magazine",
+    "current affairs", "world news", "local news"
+  ]
+}
