@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LensShift — Sidebar Preview</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Demo harness (omit in production content script) -->
+  <div class="demo-page" aria-hidden="true">
+    <div class="demo-page__content">
+      <span class="demo-page__badge">Hackathon Preview</span>
+      <h2 class="demo-page__title">Google Search · Simulated</h2>
+      <p class="demo-page__hint">LensShift opens on the right — type a query inside the sidebar</p>
+    </div>
+  </div>
+
+  <button type="button" class="lensshift-launcher" id="lensshift-launcher" aria-label="Open LensShift sidebar" hidden>
+    <span class="lensshift-launcher__dot" aria-hidden="true"></span>
+    LensShift
+  </button>
+
+  <div id="lensshift-host" class="lensshift-host is-open" role="complementary" aria-label="LensShift sidebar">
+    <aside class="lensshift-root lensshift-sidebar" id="lensshift-sidebar" aria-hidden="false">
+
+      <div class="sidebar-accent-bar" aria-hidden="true"></div>
+
+      <!-- Header -->
+      <header class="sidebar-header">
+        <div class="sidebar-header__brand">
+          <div class="brand-mark" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.75"/>
+              <circle cx="12" cy="12" r="3" fill="currentColor"/>
+              <path d="M12 3.5V7M12 17v3.5M3.5 12H7M17 12h3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h1 class="sidebar-header__logo">LensShift</h1>
+            <p class="sidebar-header__tagline">The Human Web</p>
+          </div>
+        </div>
+        <div class="sidebar-header__actions">
+          <span class="status-pill" id="status-pill">Ready</span>
+          <div class="settings-wrap">
+            <button type="button" class="icon-btn" id="settings-toggle" aria-label="Settings" aria-expanded="false" aria-haspopup="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+            </button>
+            <div class="settings-dropdown" id="settings-dropdown" role="menu" hidden>
+              <button type="button" class="settings-dropdown__item" role="menuitem">Show on every search</button>
+              <button type="button" class="settings-dropdown__item" role="menuitem">Prefer indie sources</button>
+              <button type="button" class="settings-dropdown__item" role="menuitem">Mute commercial bias alerts</button>
+              <hr class="settings-dropdown__divider">
+              <button type="button" class="settings-dropdown__item" role="menuitem">About LensShift</button>
+            </div>
+          </div>
+          <button type="button" class="icon-btn icon-btn--close" id="sidebar-close" aria-label="Close sidebar">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+              <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="sidebar-scroll">
+
+        <!-- Search Context -->
+        <section class="panel panel--search" aria-labelledby="search-context-heading">
+          <h2 class="visually-hidden" id="search-context-heading">Search</h2>
+
+          <form class="search-form" id="search-form" autocomplete="off">
+            <label class="search-form__label" for="search-input">Searching for</label>
+            <div class="search-form__row">
+              <input
+                type="text"
+                id="search-input"
+                class="search-form__input"
+                name="query"
+                value=""
+                placeholder="Type anything… climate change, best laptops, AI ethics"
+                aria-describedby="search-hint"
+                maxlength="200"
+              >
+              <button type="submit" class="search-form__submit" id="search-submit" aria-label="Search with LensShift">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" aria-hidden="true">
+                  <circle cx="11" cy="11" r="7"/>
+                  <path d="M20 20l-3.5-3.5"/>
+                </svg>
+              </button>
+            </div>
+            <p class="search-form__hint" id="search-hint">Press Enter to break out of the algorithm bubble</p>
+          </form>
+
+          <div class="bubble-meter bubble-meter--idle" id="bubble-meter" aria-label="Commercial bias meter">
+            <div class="bubble-meter__header">
+              <span class="bubble-meter__title">
+                <svg class="bubble-meter__icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 7v5l3 2"/>
+                </svg>
+                Bubble Meter
+              </span>
+              <span class="bubble-meter__value" id="bubble-meter-label">Enter a query to analyze</span>
+            </div>
+            <div class="bubble-meter__track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="bubble-meter__fill" id="bubble-meter-fill" style="width: 0%"></div>
+            </div>
+            <div class="bubble-meter__scale" aria-hidden="true">
+              <span>Human</span>
+              <span>Commercial</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Content area — hidden until user searches -->
+        <div class="sidebar-content" id="sidebar-content" hidden>
+
+          <!-- Echo Breaker -->
+          <section class="panel panel--echo" aria-labelledby="echo-breaker-heading">
+            <div class="section-head">
+              <h2 class="section-title" id="echo-breaker-heading">
+                <span class="section-title__icon section-title__icon--blue" aria-hidden="true"></span>
+                Echo Breaker
+              </h2>
+              <span class="section-head__note">Opposing view</span>
+            </div>
+            <article class="echo-card" id="echo-card">
+              <span class="badge badge--opposing">Opposing Perspective</span>
+              <h3 class="echo-card__headline" id="echo-headline"></h3>
+              <p class="echo-card__body" id="echo-body"></p>
+              <div class="echo-card__meta">
+                <span class="badge badge--source" id="echo-source"></span>
+              </div>
+              <button type="button" class="btn btn--primary" id="explore-angle-btn">
+                Explore this angle
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M7 17L17 7M17 7H9M17 7v8"/>
+                </svg>
+              </button>
+              <p class="echo-card__feedback" id="echo-feedback" hidden aria-live="polite"></p>
+            </article>
+          </section>
+
+          <!-- Serendipity Picks -->
+          <section class="panel" aria-labelledby="serendipity-heading">
+            <div class="section-head">
+              <h2 class="section-title" id="serendipity-heading">
+                <span class="section-title__icon section-title__icon--green" aria-hidden="true"></span>
+                Serendipity Picks
+              </h2>
+            </div>
+            <p class="section-subtitle">Hidden gems the algorithm usually skips</p>
+            <ul class="serendipity-list" id="serendipity-list" role="list"></ul>
+          </section>
+
+          <!-- Human Discussions -->
+          <section class="panel" aria-labelledby="discussions-heading">
+            <div class="section-head">
+              <h2 class="section-title" id="discussions-heading">
+                <span class="section-title__icon section-title__icon--warm" aria-hidden="true"></span>
+                People Are Talking About…
+              </h2>
+            </div>
+            <ul class="discussion-list" id="discussion-list" role="list"></ul>
+          </section>
+
+          <!-- Daily Discovery -->
+          <section class="panel panel--discovery" aria-labelledby="discovery-heading">
+            <article class="discovery-card" id="discovery-card">
+              <p class="discovery-card__eyebrow" id="discovery-heading">Today's Unexpected Corner of the Internet</p>
+              <h3 class="discovery-card__site" id="discovery-site"></h3>
+              <p class="discovery-card__reason" id="discovery-reason"></p>
+              <button type="button" class="btn btn--ghost btn--small" id="discovery-refresh">
+                Show another
+              </button>
+            </article>
+          </section>
+
+        </div><!-- /sidebar-content -->
+
+        <!-- Empty state before first search -->
+        <div class="empty-state" id="empty-state">
+          <div class="empty-state__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25">
+              <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/>
+              <circle cx="12" cy="12" r="2.5"/>
+            </svg>
+          </div>
+          <p class="empty-state__title">Your lens is ready</p>
+          <p class="empty-state__text">Type a search above to uncover human perspectives, indie sites, and voices outside the mainstream results.</p>
+        </div>
+
+      </div><!-- /.sidebar-scroll -->
+
+      <footer class="sidebar-footer">
+        <span class="sidebar-footer__version">LensShift v1.0</span>
+        <span class="sidebar-footer__motto">Expand your perspective.</span>
+      </footer>
+
+    </aside>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
