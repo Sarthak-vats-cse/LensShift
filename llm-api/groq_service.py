@@ -3,11 +3,18 @@ from dotenv import load_dotenv
 import os
 import json
 
-# Load environment variables
-load_dotenv()
+# Load environment variables from the project root .env file
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.abspath(os.path.join(current_dir, os.pardir))
+dotenv_path = os.path.join(project_root, ".env")
+load_dotenv(dotenv_path)
 
-# Read API key
+# Read API key securely from environment
 api_key = os.getenv("GROQ_API_KEY")
+if not api_key:
+    raise RuntimeError(
+        "Missing GROQ_API_KEY environment variable. Add it to your .env file or export it in the environment."
+    )
 
 # Create Groq client
 client = Groq(api_key=api_key)

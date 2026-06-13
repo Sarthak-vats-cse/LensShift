@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "LensShift",
+  "version": "1.0",
+  "description": "Anti-algorithm search parser and perspective shifter.",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["https://www.google.com/*", "http://localhost:8000/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://www.google.com/search*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+"web_accessible_resources": [
+    {
+      "resources": [
+        "*.html",
+        "*.css",
+        "*.js",
+        "frontend/*"
+      ],
+      "matches": ["https://www.google.com/*"]
+    }
+  ]
+}
