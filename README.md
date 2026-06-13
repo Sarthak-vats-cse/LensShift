@@ -10,7 +10,7 @@ LensShift is an anti-algorithm search parser and perspective shifter. It operate
 
 * **The Echo Breaker:** Powered by Groq (Llama-3.3), this engine analyzes the mainstream bias of your search query and instantly generates skeptical and academic counter-perspectives to broaden your context.
 * **Deep Human Discussions:** Bypasses standard web scraping by utilizing the Algolia API to deep-search Hacker News comment sections. It finds where real engineers, developers, and thinkers are actively debating your topic, even if it is buried in a broader thread.
-* **Serendipity Rabbit-Hole Engine:** Interactive expansion cards that pivot your search into related, unexpected domains. Clicking a card autonomously triggers a fresh backend analysis loop.
+* **Serendipity Engine:** Interactive expansion cards that pivot your search into related, unexpected domains. Clicking a card autonomously triggers a fresh backend analysis loop.
 * **Shadow DOM Injection:** The frontend UI is sandboxed within a Shadow DOM, ensuring it renders flawlessly on top of Google Search without CSS bleeding or layout conflicts.
 
 ---
