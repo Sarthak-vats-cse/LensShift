@@ -1,0 +1,148 @@
+{
+  "commercial_bias": {
+    "name": "🛒 Commercial Bias",
+    "description": "Search results dominated by product pages, affiliate blogs, and ads instead of genuine information",
+    "signal_words": [
+      "best", "top 10", "top 5", "buy", "cheap",
+      "discount", "deal", "offer", "price", "review",
+      "vs", "comparison", "worth it", "affordable",
+      "premium", "budget", "sale", "coupon"
+    ],
+    "example_searches": [
+      "best laptop 2024",
+      "top 10 headphones under 5000",
+      "iphone vs samsung which is better"
+    ],
+    "antidote": "Try searching for independent reviews, forum discussions, or academic comparisons instead of 'best' or 'top' lists",
+    "severity_weight": 2
+  },
+
+  "echo_chamber": {
+    "name": "🔄 Echo Chamber",
+    "description": "Searching only for information that confirms existing beliefs while avoiding opposing views",
+    "signal_words": [
+      "why is", "proof that", "evidence that",
+      "is wrong", "is bad", "is better", "is worst",
+      "debunked", "exposed", "truth about",
+      "why you should", "why you shouldn't",
+      "problems with", "benefits of"
+    ],
+    "example_searches": [
+      "why python is better than java",
+      "proof that climate change is fake",
+      "why android is better than iphone"
+    ],
+    "antidote": "Search for the opposite viewpoint. If you searched 'why X is bad', also search 'why X is good'",
+    "severity_weight": 3
+  },
+
+  "recency_bias": {
+    "name": "⏰ Recency Bias",
+    "description": "Only looking at recent content while ignoring valuable older knowledge and historical context",
+    "signal_words": [
+      "2024", "2025", "latest", "new", "today",
+      "this week", "this month", "recent", "trending",
+      "current", "now", "modern", "update",
+      "breaking", "just released"
+    ],
+    "example_searches": [
+      "latest javascript framework 2024",
+      "trending stocks today",
+      "new diet trends 2024"
+    ],
+    "antidote": "Remove the year from your search. Look for timeless knowledge, classic articles, and historical perspectives",
+    "severity_weight": 2
+  },
+
+  "authority_bias": {
+    "name": "🏛️ Authority Bias",
+    "description": "Only trusting big brand sources and institutions while ignoring independent researchers and smaller voices",
+    "signal_words": [
+      "official", "government", "harvard", "mit",
+      "stanford", "study shows", "research proves",
+      "according to", "experts say", "scientists say",
+      "fda approved", "who says", "certified",
+      "verified", "trusted"
+    ],
+    "example_searches": [
+      "harvard study on productivity",
+      "what does WHO say about diet",
+      "official government guidelines on tax"
+    ],
+    "antidote": "Check what independent researchers, smaller universities, and citizen scientists have found. Big names aren't always right",
+    "severity_weight": 2
+  },
+
+  "negativity_bias": {
+    "name": "😨 Negativity Bias",
+    "description": "Focusing on dangers, risks, and negative outcomes while ignoring positive possibilities",
+    "signal_words": [
+      "danger", "dangerous", "risk", "risky",
+      "problem", "fail", "failure", "scam", "fraud",
+      "warning", "avoid", "worst", "bad", "toxic",
+      "harmful", "side effects", "negative", "crash",
+      "crisis", "disaster", "threat"
+    ],
+    "example_searches": [
+      "dangers of artificial intelligence",
+      "why startups fail",
+      "side effects of protein powder"
+    ],
+    "antidote": "Balance your research. Also search for success stories, positive outcomes, and solutions",
+    "severity_weight": 2
+  },
+
+  "popularity_bias": {
+    "name": "📊 Popularity Bias",
+    "description": "Only looking at mainstream popular opinions while ignoring niche and minority viewpoints",
+    "signal_words": [
+      "most popular", "everyone", "mainstream",
+      "famous", "well known", "trending", "viral",
+      "popular opinion", "majority", "most people",
+      "common", "widely used", "top rated",
+      "highest rated", "most downloaded"
+    ],
+    "example_searches": [
+      "most popular programming language",
+      "most famous books to read",
+      "most popular diet plan"
+    ],
+    "antidote": "Search for hidden gems, underrated options, and niche alternatives. The most popular isn't always the best for you",
+    "severity_weight": 1
+  },
+
+  "confirmation_bias": {
+    "name": "✅ Confirmation Bias",
+    "description": "Actively seeking information that supports what you already believe",
+    "signal_words": [
+      "prove", "proves", "proof", "evidence",
+      "support", "confirms", "agree", "correct",
+      "right", "true", "fact", "facts",
+      "show that", "demonstrate"
+    ],
+    "example_searches": [
+      "evidence that meditation works",
+      "proof that cold showers are healthy",
+      "studies that prove intermittent fasting works"
+    ],
+    "antidote": "Search for counter-arguments too. Science advances by trying to disprove theories, not just confirm them",
+    "severity_weight": 3
+  },
+
+  "geographic_bias": {
+    "name": "🌍 Geographic Bias",
+    "description": "Search results biased toward your country or region, missing global perspectives",
+    "signal_words": [
+      "in india", "in usa", "in uk", "in america",
+      "near me", "local", "in my city", "in my country",
+      "domestic", "national"
+    ],
+    "example_searches": [
+      "best colleges in india",
+      "job market in usa",
+      "healthcare in uk"
+    ],
+    "antidote": "Remove geographic filters. See how other countries approach the same topic. You might find better solutions",
+    "severity_weight": 1
+  }
+}
